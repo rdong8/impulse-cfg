@@ -10,7 +10,9 @@ function setup() {
   sudo apt-get update
   sudo apt-get install -y ansible
 
+  echo "\n# Start from impulse-cfg setup.sh" >> ~/.bashrc
   echo "alias impulse-pull=\"ansible-pull -U ssh://git@github.com:rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log\"" >> ~/.bashrc
+  echo "# End impulse-cfg setup.sh" >> ~/.bashrc
   source ~/.bashrc
   sudo impulse-pull
 }
