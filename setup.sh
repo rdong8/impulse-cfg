@@ -7,8 +7,8 @@ function setup() {
   # This will error if the directory already exists, preventing this script from being run twice without the user knowing
   sudo mkdir /var/log/impulse/ 
 
-  sudo apt update
-  sudo apt install ansible	
+  sudo apt-get update
+  sudo apt-get install ansible -y	
   echo "alias impulse-pull=\"ansible-pull -U ssh://git@github.com:rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log\"" >> ~/.bashrc
   sudo impulse-pull
 }
