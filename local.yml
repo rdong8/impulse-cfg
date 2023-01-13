@@ -3,10 +3,11 @@
   become: true
 
   pre_tasks:
-    - name: Update repositories
+    - name: Update repositories (Ubuntu)
       apt:
         update_cache: yes
       changed_when: false
+      when: ansible_distribution == "Ubuntu"
 
   tasks:
     - include: tasks/packages.yml
