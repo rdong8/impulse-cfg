@@ -1,0 +1,6 @@
+- name: Install server management packages
+  apt:
+    name:
+      - htop
+      - tmux
+      - neovim 
