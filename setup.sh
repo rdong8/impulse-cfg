@@ -4,11 +4,13 @@ function setup() {
   sudo apt-get update
   sudo apt-get install -y ansible
 
-  ANSIBLE_LOG="ANSIBLE_LOG_PATH=/var/log/impulse/ansible.log"
-  PULL="ansible-pull -U ssh://git@github.com:rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
-  echo "\n# Start from impulse-cfg setup.sh" >> ~/.bashrc
-  echo "$ANSIBLE_LOG alias impulse-pull=\"$PULL\"" >> ~/.bashrc
-  echo "# End impulse-cfg setup.sh\n" >> ~/.bashrc
+  sudo touch /var/log/impulse/ansible.log
+  echo -e  "\n# Start impulse-cfg/setup.sh" >> ~/.bashrc
+  echo "ANSIBLE_LOG_PATH=/var/log/impulse/ansible.log" >> ~/.bashrc
+  # PULL="ansible-pull -U ssh://git@github.com:rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
+  PULL="ansible-pull -o -U https://github.com/rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
+  echo "alias impulse-pull=\"$PULL\"" >> ~/.bashrc
+  echo -e "# End impulse-cfg/setup.sh\n" >> ~/.bashrc
   source ~/.bashrc
   sudo impulse-pull
 }
@@ -20,4 +22,4 @@ set -e
 sudo mkdir /var/log/impulse/ 
 sudo touch /var/log/impulse/setup.log
 
-setup |& tee -a /var/log/impulse/setup.log
+setup |& sudo tee -a /var/log/impulse/setup.log
