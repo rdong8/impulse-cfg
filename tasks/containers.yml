@@ -20,9 +20,9 @@
 - name: Install Docker
   ansible.builtin.apt:
     name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-compose-plugin
+      - docker
+      - docker.io
+      - docker-compose
+      - docker-registry
     state: latest
     update_cache: true
