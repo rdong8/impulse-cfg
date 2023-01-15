@@ -11,3 +11,4 @@
 
   tasks:
     - include: tasks/cli_packages.yml
+    - include: tasks/containers.yml
