@@ -7,8 +7,7 @@ function setup() {
   sudo touch /var/log/impulse/ansible.log
   echo -e  "\n# Start impulse-cfg/setup.sh" >> ~/.bashrc
   echo "ANSIBLE_LOG_PATH=/var/log/impulse/ansible.log" >> ~/.bashrc
-  # PULL="ansible-pull -U ssh://git@github.com:rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
-  PULL="ansible-pull -o -U https://github.com/rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
+  PULL="ansible-pull -o -U ssh://git@github.com/rdong8/impulse-cfg.git |& sudo tee -a /var/log/impulse/impulse-pull.log"
   echo "alias impulse-pull=\"$PULL\"" >> ~/.bashrc
   echo -e "# End impulse-cfg/setup.sh\n" >> ~/.bashrc
   source ~/.bashrc

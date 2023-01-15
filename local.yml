@@ -10,4 +10,4 @@
       when: ansible_distribution == "Ubuntu"
 
   tasks:
-    - include: tasks/packages.yml
+    - include: tasks/cli_packages.yml
