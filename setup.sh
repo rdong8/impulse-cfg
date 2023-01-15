@@ -11,7 +11,6 @@ function setup() {
   echo "alias impulse-pull=\"$PULL\"" >> ~/.bashrc
   echo -e "# End impulse-cfg/setup.sh\n" >> ~/.bashrc
   source ~/.bashrc
-  sudo impulse-pull
 }
 
 # Exit if there is an error
